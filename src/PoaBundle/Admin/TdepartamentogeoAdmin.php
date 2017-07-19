@@ -35,8 +35,8 @@ class  TdepartamentogeoAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('departamentogeografico')
-        ->add('identidad')
+        ->addIdentifier('departamentogeografico',null,array('label' =>'Departamentos Geograficoss'))
+        ->add('identidad',null,array('label' =>'Lista de Entidades'))
         
         
         // add custom action links
