@@ -34,7 +34,7 @@ class  TgerarquiaAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('gerarquia')
+        ->addIdentifier('gerarquia',null,array('label' =>'Gerarquia'))
         
         
         // add custom action links

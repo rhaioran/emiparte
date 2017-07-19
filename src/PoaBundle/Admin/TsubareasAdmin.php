@@ -36,8 +36,8 @@ class  TsubareasAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('idarea')
-        ->add('subarea')
+        ->addIdentifier('idarea',null,array('label' =>'Lista de Areas'))
+        ->add('subarea',null,array('label' =>'Nombre de la Subarea'))
         
         
         // add custom action links

@@ -34,7 +34,7 @@ class  TtipopersonaAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('tipopersona')
+        ->addIdentifier('tipopersona',null,array('label' =>'Tipo de Persona'))
         
         
         // add custom action links

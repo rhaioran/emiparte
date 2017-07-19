@@ -37,9 +37,9 @@ class  TrespareaparteAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('idpersona')
-        ->add('idarea')
-        ->add('observacion')
+        ->addIdentifier('idpersona',null,array('label' =>'Responable del Parte'))
+        ->add('idarea',null,array('label' =>'Area a la que pertenece'))
+        ->add('observacion',null,array('label' =>'Observaciones'))
         
         
         // add custom action links

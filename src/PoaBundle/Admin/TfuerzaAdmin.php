@@ -54,7 +54,7 @@ class  TfuerzaAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('Fuerza')
+       ->addIdentifier('Fuerza',null,array('label' =>'Fuerza a la que  pertenece'))
         
         
         // add custom action links

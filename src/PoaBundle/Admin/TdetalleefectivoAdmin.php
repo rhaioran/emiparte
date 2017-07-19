@@ -36,10 +36,10 @@ class  TdetalleefectivoAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('idsubarea')
-        ->add('idtipopersona')
-        ->add('idfuerza')
-        ->add('Efectivo')
+        ->addIdentifier('idsubarea',null,array('label' =>'Codigo de Sub Area'))
+        ->add('idtipopersona',null,array('label' =>'Tipo de Persona'))
+        ->add('idfuerza',null,array('label' =>'Fuarza que Pertenece'))
+        ->add('Efectivo',null,array('label' =>'Nro de Efectivo'))
         
         
         // add custom action links

@@ -36,8 +36,8 @@ class  TmodeloparteconpAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('idconcepto')
-        ->add('idmodelo')
+        ->addIdentifier('idconcepto',null,array('label' =>'Lista de Conceptos'))
+        ->add('idmodelo',null,array('label' =>'Lista de Modelos'))
         
         
         // add custom action links

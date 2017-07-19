@@ -35,8 +35,8 @@ class  TmodeloparteAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('modelo')
-        ->add('esgenerirco')
+        ->addIdentifier('modelo',null,array('label' =>'Tipos de Modelos Modelo'))
+        ->add('esgenerirco',null,array('label' =>'Modelo Generico'))
         
         
         // add custom action links

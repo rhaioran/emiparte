@@ -37,8 +37,8 @@ class  TpartesubareaAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('idtipoparte')
-        ->add('idsubarea')
+        ->addIdentifier('idtipoparte',null,array('label' =>'Tipo de Parte'))
+        ->add('idsubarea',null,array('label' =>'Area'))
         
         
         // add custom action links

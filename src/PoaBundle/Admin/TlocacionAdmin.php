@@ -36,8 +36,8 @@ class  TlocacionAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('nombrelocacion')
-        ->add('idunidad')
+        ->addIdentifier('nombrelocacion',null,array('label' =>'Nombre de la Locacion'))
+        ->add('idunidad',null,array('label' =>'Lista de Unidades'))
         
         
         // add custom action links

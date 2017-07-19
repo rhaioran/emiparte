@@ -36,8 +36,8 @@ class  TunidadAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('nombreunidad')
-        ->add('iddepartamentogeo')
+        ->addIdentifier('nombreunidad',null,array('label' =>'Nombre de la Unidad'))
+        ->add('iddepartamentogeo',null,array('label' =>'Lista de Departamento Geografico'))
         
         
         // add custom action links

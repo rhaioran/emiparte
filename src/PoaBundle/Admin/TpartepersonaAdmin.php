@@ -48,10 +48,10 @@ class  TpartepersonaAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('idparte')
-        ->add('idconcepto')
-        ->add('idpersona')
-        ->add('obs')
+        ->addIdentifier('idparte',null,array('label' =>'Parte'))
+        ->add('idconcepto',null,array('label' =>'Concepto'))
+        ->add('idpersona',null,array('label' =>'Persona'))
+        ->add('obs',null,array('label' =>'Observacion'))
         
         
         // add custom action links

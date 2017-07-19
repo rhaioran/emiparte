@@ -46,9 +46,9 @@ class  TdetalleparteAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('idparte')
-        ->add('idconcepto')
-        ->add('numero')
+        ->addIdentifier('idparte',null,array('label' =>'Codigo del Detalle del Parte'))
+        ->add('idconcepto',null,array('label' =>'Lista de Conceptos'))
+        ->add('numero',null,array('label' =>'Cantidad'))
         
         
         // add custom action links

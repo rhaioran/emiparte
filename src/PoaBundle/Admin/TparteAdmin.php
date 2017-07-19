@@ -47,8 +47,8 @@ class  TparteAdmin  extends AbstractAdmin
         ->add('idarea',null,array('label' =>'Lista de Areas','required' => true, 'placeholder' => 'Seleccione.....' ))
         ->add('idtipoparte',null,array('label' =>'Lista de tipos de parte','required' => true, 'placeholder' => 'Seleccione.....' ))
         ->add('fecha','date',array('label' =>'Fecha del parte','required' => true,'widget' => 'single_text' ))
-        ->add('fecharegistro','date',array('label' =>'Fecha de Recoleccion del Parte','required' => true,'widget' => 'single_text' ))
-        ->add('fechaenvio','date',array('label' =>'Fecha de envio del Parte','required' => true,'widget' => 'single_text' ))
+        ->add('fecharegistro','date',array('label' =>'Fecha de Recoleccion del Parte','required' => false,'widget' => 'single_text' ))
+        ->add('fechaenvio','date',array('label' =>'Fecha de envio del Parte','required' => false,'widget' => 'single_text' ))
    //     ->add('estado','text',array('label' =>'Estado del Parte','required' => false))
         ->add('observaciones','text',array('label' =>'Observaciones','required' => false))
         ->end();
@@ -67,13 +67,13 @@ class  TparteAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('idarea')
-        ->add('idtipoparte')
-        ->add('fecha', 'date', array('format' => 'dd-MM-yyy'))
-        ->add('fecharegistro')
-        ->add('fechaenvio')
-      //  ->add('estado')
-        ->add('observaciones')
+        ->addIdentifier('idarea',null,array('label' =>'Lista de Areas'))
+        ->add('idtipoparte',null,array('label' =>'Lista de tipos de parte'))
+        ->add('fecha',null,array('label' =>'Fecha del parte'))
+        ->add('fecharegistro',null,array('label' =>'Fecha de Recoleccion del Parte'))
+        ->add('fechaenvio',null,array('label' =>'Fecha de envio del Parte'))
+        //->add('estado',null,array('label' =>'Estado del Parte'))
+        ->add('observaciones',null,array('label' =>'Observaciones'))
         
         
         // add custom action links

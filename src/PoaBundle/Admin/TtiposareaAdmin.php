@@ -34,7 +34,7 @@ class  TtiposareaAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('tipoarea')
+        ->addIdentifier('tipoarea',null,array('label' =>'Nombre del Tipo de Area'))
         
         
         // add custom action links

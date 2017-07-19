@@ -39,11 +39,11 @@ class  TtipoparteAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('tipoparte')
-        ->add('decumplimiento')
-        ->add('hora')
-        ->add('idmodelo')
-        ->add('horamaxenvio')
+        ->addIdentifier('tipoparte',null,array('label' =>'Tipos de Parte'))
+        ->add('decumplimiento',null,array('label' =>'Cumplimiento'))
+        ->add('hora',null,array('label' =>'Hora para el Parte'))
+        ->add('idmodelo',null,array('label' =>'Codigo del Modelo'))
+        ->add('horamaxenvio',null,array('label' =>'Hora Maxima de Envio'))
         
         
         // add custom action links
