@@ -1,0 +1,22 @@
+AppBundle\Entity\Ttiposarea:
+    type: entity
+    table: tTiposArea
+    id:
+        idtipoarea:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'Codigo de loa Tipos de Area'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tipoarea:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+                comment: 'Nombre del Tipo de Area'
+    lifecycleCallbacks: {  }

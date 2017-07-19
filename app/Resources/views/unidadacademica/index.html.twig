@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Unidadacademicas list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Iduniacdemica</th>
+                <th>Uniacademica</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for unidadAcademica in unidadAcademicas %}
+            <tr>
+                <td><a href="{{ path('unidadacademica_show', { 'iduniacdemica': unidadAcademica.iduniacdemica }) }}">{{ unidadAcademica.iduniacdemica }}</a></td>
+                <td>{{ unidadAcademica.uniacademica }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('unidadacademica_show', { 'iduniacdemica': unidadAcademica.iduniacdemica }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('unidadacademica_edit', { 'iduniacdemica': unidadAcademica.iduniacdemica }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('unidadacademica_new') }}">Create a new unidadAcademica</a>
+        </li>
+    </ul>
+{% endblock %}

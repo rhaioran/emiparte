@@ -1,0 +1,69 @@
+AppBundle\Entity\Tparte:
+    type: entity
+    table: Tparte
+    indexes:
+        IDX_7D6B0EF0F7B5B1A3:
+            columns:
+                - idTipoParte
+    uniqueConstraints:
+        ix_parte_1:
+            columns:
+                - idarea
+    id:
+        idparte:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'Codigo del Parte'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idarea:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                comment: 'Lista de Areas'
+        fecha:
+            type: datetime
+            nullable: false
+            options:
+                comment: 'Fecha del parte'
+        fecharegistro:
+            type: datetime
+            nullable: false
+            options:
+                comment: 'Fecha de Recoleccion del Parte'
+        fechaenvio:
+            type: datetime
+            nullable: false
+            options:
+                comment: 'Fecha de envio del Parte'
+        estado:
+            type: string
+            nullable: true
+            length: 2
+            options:
+                fixed: false
+                comment: 'Estado del Parte'
+        observaciones:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+                comment: Observaciones
+    manyToOne:
+        idtipoparte:
+            targetEntity: Ttipoparte
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idTipoParte:
+                    referencedColumnName: idtipoparte
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

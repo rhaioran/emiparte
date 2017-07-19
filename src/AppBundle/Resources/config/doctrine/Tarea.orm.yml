@@ -1,0 +1,63 @@
+AppBundle\Entity\Tarea:
+    type: entity
+    table: Tarea
+    indexes:
+        IDX_FD617C621F530E11:
+            columns:
+                - idtipoarea
+        IDX_FD617C623985AEE0:
+            columns:
+                - idlocacion
+        IDX_FD617C62946AC1EA:
+            columns:
+                - idmodelo
+    id:
+        idarea:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'Id Area'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombrearea:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+                comment: 'Nombre de Area'
+    manyToOne:
+        idtipoarea:
+            targetEntity: Ttiposarea
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idtipoarea:
+                    referencedColumnName: idtipoarea
+            orphanRemoval: false
+        idlocacion:
+            targetEntity: Tlocacion
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idlocacion:
+                    referencedColumnName: idlocacion
+            orphanRemoval: false
+        idmodelo:
+            targetEntity: Tmodeloparte
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idmodelo:
+                    referencedColumnName: IdModelo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,45 @@
+AppBundle\Entity\Tpartepersona:
+    type: entity
+    table: Tpartepersona
+    indexes:
+        IDX_7826D32F4B917EB6:
+            columns:
+                - idparte
+    uniqueConstraints:
+        IX_Tpartepersona:
+            columns:
+                - idparte
+                - idconcepto
+                - idpersona
+    id:
+        idconcepto:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+        idpersona:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+    fields:
+        obs:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+    oneToOne:
+        idparte:
+            targetEntity: Tparte
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idparte:
+                    referencedColumnName: idparte
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

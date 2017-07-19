@@ -1,0 +1,48 @@
+AppBundle\Entity\Tpartearea:
+    type: entity
+    table: Tpartearea
+    indexes:
+        IDX_F3D1B928B4851C04:
+            columns:
+                - idtipoparte
+        IDX_F3D1B92845BCCC8:
+            columns:
+                - idarea
+    id:
+        idpartearea:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'Codigo del Area'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        esdiario:
+            type: boolean
+            nullable: true
+            options:
+                comment: Priodicidad
+    manyToOne:
+        idtipoparte:
+            targetEntity: Ttipoparte
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idtipoparte:
+                    referencedColumnName: idtipoparte
+            orphanRemoval: false
+        idarea:
+            targetEntity: Tarea
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idarea:
+                    referencedColumnName: idarea
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

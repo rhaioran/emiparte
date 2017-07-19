@@ -1,0 +1,161 @@
+AppBundle\Entity\Tpersonas:
+    type: entity
+    table: Tpersonas
+    indexes:
+        IDX_D017BBCC45BCCC8:
+            columns:
+                - idarea
+        IDX_D017BBCCFBAED7AF:
+            columns:
+                - idtipopersona
+        IDX_D017BBCCC65BDD9:
+            columns:
+                - idgerarquia
+        IDX_D017BBCC6F8A2B33:
+            columns:
+                - idgrado
+    id:
+        idpersona:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'Codigo de Persona'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idsubarea:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                comment: 'Lista de Subareas'
+        idestado:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                comment: Estado
+        ci:
+            type: string
+            nullable: true
+            length: 15
+            options:
+                fixed: false
+                comment: 'Carnet de Identidad'
+        appaterno:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+                comment: 'Apellido Paterno'
+        apmaterno:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+                comment: 'Apellido Materno'
+        nombre:
+            type: string
+            nullable: false
+            length: 40
+            options:
+                fixed: false
+                comment: Nombres
+        fecnac:
+            type: datetime
+            nullable: true
+            options:
+                comment: 'Fecha de Nacimiento'
+        sexo:
+            type: string
+            nullable: false
+            length: 1
+            options:
+                fixed: true
+                comment: Sexo
+        escivil:
+            type: boolean
+            nullable: true
+            options:
+                comment: 'Estado Civil'
+        direccion:
+            type: string
+            nullable: true
+            length: 150
+            options:
+                fixed: false
+                comment: Direccion
+        telefono:
+            type: string
+            nullable: true
+            length: 20
+            options:
+                fixed: false
+                comment: Telefono
+        email:
+            type: string
+            nullable: true
+            length: 80
+            options:
+                fixed: false
+                comment: 'Correo Electronico'
+        codalumno:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+                comment: 'Codigo de Alumno'
+        observaciones:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+                comment: Observaciones
+    manyToOne:
+        idarea:
+            targetEntity: Tarea
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idarea:
+                    referencedColumnName: idarea
+            orphanRemoval: false
+        idtipopersona:
+            targetEntity: Ttipopersona
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idtipopersona:
+                    referencedColumnName: idtipopersona
+            orphanRemoval: false
+        idgerarquia:
+            targetEntity: Tgerarquia
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idgerarquia:
+                    referencedColumnName: idgerarquia
+            orphanRemoval: false
+        idgrado:
+            targetEntity: Tclgrados
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idgrado:
+                    referencedColumnName: idgrado
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

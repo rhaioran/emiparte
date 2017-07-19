@@ -1,0 +1,27 @@
+AppBundle\Entity\Tconceptoparte:
+    type: entity
+    table: tConceptoParte
+    id:
+        idconcepto:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'Codigo del Concepto'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        concepto:
+            type: string
+            nullable: true
+            length: 35
+            options:
+                fixed: false
+                comment: 'Concepto del Parte'
+        requerido:
+            type: boolean
+            nullable: true
+            options:
+                comment: Requerido
+    lifecycleCallbacks: {  }

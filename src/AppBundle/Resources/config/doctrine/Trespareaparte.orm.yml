@@ -1,0 +1,31 @@
+AppBundle\Entity\Trespareaparte:
+    type: entity
+    table: Trespareaparte
+    indexes:
+        IDX_F03107F98EB5DE45:
+            columns:
+                - idareas
+    id: {  }
+    oneToOne:
+        idpersona:
+            targetEntity: Tpersonas
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idpersona:
+                    referencedColumnName: idpersona
+            orphanRemoval: false
+    manyToOne:
+        idareas:
+            targetEntity: Tparte
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idareas:
+                    referencedColumnName: idarea
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

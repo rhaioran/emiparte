@@ -1,0 +1,22 @@
+AppBundle\Entity\Tgerarquia:
+    type: entity
+    table: tGerarquia
+    id:
+        idgerarquia:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'Codigo Gerarquia'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        gerarquia:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+                comment: Gerarquia
+    lifecycleCallbacks: {  }

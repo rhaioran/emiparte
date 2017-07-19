@@ -1,0 +1,38 @@
+AppBundle\Entity\Tdetalleparte:
+    type: entity
+    table: Tdetalleparte
+    indexes:
+        IDX_B0F72E53CE56C0DD:
+            columns:
+                - idconcepto
+    id: {  }
+    fields:
+        numero:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                comment: Cantidad
+    oneToOne:
+        idparte:
+            targetEntity: Tparte
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idparte:
+                    referencedColumnName: idparte
+            orphanRemoval: false
+    manyToOne:
+        idconcepto:
+            targetEntity: Tconceptoparte
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idconcepto:
+                    referencedColumnName: idconcepto
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

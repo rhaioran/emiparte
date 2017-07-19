@@ -1,0 +1,28 @@
+AppBundle\Entity\Tdepartamentogeo:
+    type: entity
+    table: Tdepartamentogeo
+    id:
+        iddepartamentogeo:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'Codigo departamento Geografico'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        departamentogeografico:
+            type: string
+            nullable: true
+            length: 15
+            options:
+                fixed: false
+                comment: 'Departamentos Geograficoss'
+        identidad:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+                comment: 'Lista de Entidades'
+    lifecycleCallbacks: {  }

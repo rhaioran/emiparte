@@ -1,0 +1,30 @@
+AppBundle\Entity\Tmodeloparte:
+    type: entity
+    table: Tmodeloparte
+    id:
+        idmodelo:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'Codigo del Modelo'
+            id: true
+            column: IdModelo
+            generator:
+                strategy: IDENTITY
+    fields:
+        modelo:
+            type: string
+            nullable: true
+            length: 25
+            options:
+                fixed: false
+                comment: 'Tipos de Modelos Modelo'
+            column: Modelo
+        esgenerirco:
+            type: boolean
+            nullable: true
+            options:
+                comment: 'Modelo Generico'
+            column: Esgenerirco
+    lifecycleCallbacks: {  }

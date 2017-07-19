@@ -1,0 +1,148 @@
+services:
+    poa.admin.tdepartamentogeo:
+        class: PoaBundle\Admin\TdepartamentogeoAdmin
+        arguments: [~, PoaBundle\Entity\Tdepartamentogeo, PoaBundle:TdepartamentogeoAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Clasificadores, label: Departamentos }
+
+    poa.admin.tunidad:
+        class: PoaBundle\Admin\TunidadAdmin
+        arguments: [~, PoaBundle\Entity\Tunidad, PoaBundle:TunidadAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Clasificadores, label: Unidades Academicas}
+
+    poa.admin.tlocacion:
+        class: PoaBundle\Admin\TlocacionAdmin
+        arguments: [~, PoaBundle\Entity\Tlocacion, PoaBundle:TlocacionAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Clasificadores, label: Zona de Ubicación }
+
+    poa.admin.ttiposarea:
+        class: PoaBundle\Admin\TtiposareaAdmin
+        arguments: [~, PoaBundle\Entity\Ttiposarea, PoaBundle:TtiposareaAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Clasificadores, label: Tipos de Area }
+
+
+    poa.admin.tarea:
+        class: PoaBundle\Admin\TareaAdmin
+        arguments: [~, PoaBundle\Entity\Tarea, PoaBundle:TareaAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Clasificadores, label: Area Organizacional }
+        calls:
+            - [ addChild, ['@poa.admin.tsubareas']]
+
+    
+    poa.admin.tsubareas:
+        class: PoaBundle\Admin\TsubareasAdmin
+        arguments: [~, PoaBundle\Entity\Tsubareas, PoaBundle:TsubareasAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Clasificadores, label: Sub Areas }
+        calls:
+            - [ setTranslationDomain, [PoaBundle]]
+
+    poa.admin.tfuerza:
+        class: PoaBundle\Admin\TfuerzaAdmin
+        arguments: [~, PoaBundle\Entity\Tfuerza, PoaBundle:TfuerzaAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Personal, label: Fuerzas }
+        calls:
+            - [ addChild, ['@poa.admin.tclgrados']]
+
+    poa.admin.tclgrados:
+        class: PoaBundle\Admin\TclgradosAdmin
+        arguments: [~, PoaBundle\Entity\Tclgrados, PoaBundle:TclgradosAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Personal, label: Grados }
+
+    poa.admin.ttipopersona:
+        class: PoaBundle\Admin\TtipopersonaAdmin
+        arguments: [~, PoaBundle\Entity\Ttipopersona, PoaBundle:TtipopersonaAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Personal, label: Tipo de Persona }
+
+    poa.admin.tgerarquia:
+        class: PoaBundle\Admin\TgerarquiaAdmin
+        arguments: [~, PoaBundle\Entity\Tgerarquia, PoaBundle:TgerarquiaAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Personal, label: Gerarquia }
+
+    poa.admin.tpersonas:
+        class: PoaBundle\Admin\TpersonasAdmin
+        arguments: [~, PoaBundle\Entity\Tpersonas, PoaBundle:TpersonasAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Personal, label: Personas }
+
+    poa.admin.tconceptoparte:
+        class: PoaBundle\Admin\TconceptoparteAdmin
+        arguments: [~, PoaBundle\Entity\Tconceptoparte, PoaBundle:TconceptoparteAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Parte, label: Concepto del parte }
+
+
+    poa.admin.tmodeloparte:
+        class: PoaBundle\Admin\TmodeloparteAdmin
+        arguments: [~, PoaBundle\Entity\Tmodeloparte, PoaBundle:TmodeloparteAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Parte, label: Modelo de Parte }
+
+    poa.admin.tmodeloparteconp:
+        class: PoaBundle\Admin\TmodeloparteconpAdmin
+        arguments: [~, PoaBundle\Entity\Tmodeloparteconp, PoaBundle:TmodeloparteconpAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Parte, label: Concepto de los Modelos de Parte }
+
+    poa.admin.ttipoparte:
+        class: PoaBundle\Admin\TtipoparteAdmin
+        arguments: [~, PoaBundle\Entity\Ttipoparte, PoaBundle:TtipoparteAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Parte, label: Tipos de Parte }
+ 
+ 
+    poa.admin.tpartearea:
+        class: PoaBundle\Admin\TparteareaAdmin
+        arguments: [~, PoaBundle\Entity\Tpartearea, PoaBundle:TparteareaAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Parte, label: Parte del Area }
+
+    poa.admin.tpartesubarea:
+        class: PoaBundle\Admin\TpartesubareaAdmin
+        arguments: [~, PoaBundle\Entity\Tpartesubarea, PoaBundle:TpartesubareaAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Parte, label: Parte de La Subarea }
+
+    poa.admin.tparte:
+        class: PoaBundle\Admin\TparteAdmin
+        arguments: [~, PoaBundle\Entity\Tparte, PoaBundle:TparteAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Parte, label: Parte }
+        calls:
+            - [ addChild, ['@poa.admin.tdetalleparte']]
+            - [ addChild, ['@poa.admin.tpartepersona']]
+
+
+    poa.admin.tdetalleparte:
+        class: PoaBundle\Admin\TdetalleparteAdmin
+        arguments: [~, PoaBundle\Entity\Tdetalleparte, PoaBundle:TdetalleparteAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Parte, label: Detalle de los Partes }
+
+    poa.admin.tpartepersona:
+        class: PoaBundle\Admin\TpartepersonaAdmin
+        arguments: [~, PoaBundle\Entity\Tpartepersona, PoaBundle:TpartepersonaAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Parte, label: Personal del Parte }
+
+    poa.admin.trespareaparte:
+        class: PoaBundle\Admin\TrespareaparteAdmin
+        arguments: [~, PoaBundle\Entity\Trespareaparte, PoaBundle:TrespareaparteAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Parte, label: Responsable del Parte }
+
+    poa.admin.tdetalleefectivo:
+        class: PoaBundle\Admin\TdetalleefectivoAdmin
+        arguments: [~, PoaBundle\Entity\Tdetalleefectivo, PoaBundle:TdetalleefectivoAdmin]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: Parte, label: Detalle del Efectivo }
+
+

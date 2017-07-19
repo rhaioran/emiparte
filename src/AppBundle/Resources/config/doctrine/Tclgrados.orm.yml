@@ -1,0 +1,35 @@
+AppBundle\Entity\Tclgrados:
+    type: entity
+    table: Tclgrados
+    id:
+        idgrado:
+            type: smallint
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'Codigo del Grado'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        grado:
+            type: string
+            nullable: false
+            length: 60
+            options:
+                fixed: false
+                comment: Grado
+        antiguedad:
+            type: smallint
+            nullable: true
+            options:
+                unsigned: false
+                comment: Antiguedad
+        fuerza:
+            type: string
+            nullable: true
+            length: 40
+            options:
+                fixed: false
+                comment: Fuerza
+    lifecycleCallbacks: {  }

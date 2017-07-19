@@ -1,0 +1,37 @@
+AppBundle\Entity\Tunidad:
+    type: entity
+    table: Tunidad
+    indexes:
+        IDX_8D26356AA9102A8:
+            columns:
+                - iddepartamentogeo
+    id:
+        idunidad:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'Codigo de la Unidad'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        nombreunidad:
+            type: string
+            nullable: true
+            length: 35
+            options:
+                fixed: false
+                comment: 'Nombre de la Unidad'
+    manyToOne:
+        iddepartamentogeo:
+            targetEntity: Tdepartamentogeo
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                iddepartamentogeo:
+                    referencedColumnName: iddepartamentogeo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

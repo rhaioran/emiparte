@@ -1,0 +1,39 @@
+AppBundle\Entity\Ttipoparte:
+    type: entity
+    table: Ttipoparte
+    id:
+        idtipoparte:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'Codigo de Tipo Parte'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tipoparte:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+                comment: 'Tipos de Parte'
+        decumplimiento:
+            type: boolean
+            nullable: true
+            options:
+                comment: Cumplimiento
+        hora:
+            type: datetime
+            nullable: true
+            options:
+                comment: 'Hora para el Parte'
+        horamaxenvio:
+            type: string
+            nullable: true
+            length: 10
+            options:
+                fixed: true
+                comment: 'Hora Maxima de Envio'
+    lifecycleCallbacks: {  }

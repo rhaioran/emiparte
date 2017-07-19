@@ -1,0 +1,27 @@
+AppBundle\Entity\Tmodeloparteconp:
+    type: entity
+    table: Tmodeloparteconp
+    indexes:
+        IDX_724C5A9946AC1EA:
+            columns:
+                - idmodelo
+    id:
+        idconcepto:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'Lista de Conceptos'
+            id: true
+    oneToOne:
+        idmodelo:
+            targetEntity: Tmodeloparte
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idmodelo:
+                    referencedColumnName: IdModelo
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

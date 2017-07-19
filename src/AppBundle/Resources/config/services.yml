@@ -1,0 +1,12 @@
+services:
+    app.admin.parte:
+        class: AppBundle\Admin\ParteAdmin
+        arguments: [~, AppBundle\Entity\Parte, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Parte }
+
+    app.admin.ttipopartes:
+        class: AppBundle\Admin\TtipopartesAdmin
+        arguments: [~, AppBundle\Entity\Ttipopartes, SonataAdminBundle:CRUD]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: admin, label: Ttipopartes }

@@ -1,0 +1,22 @@
+AppBundle\Entity\Ttipopersona:
+    type: entity
+    table: tTipoPersona
+    id:
+        idtipopersona:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                comment: 'Codigo Tipo Persona'
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        tipopersona:
+            type: string
+            nullable: true
+            length: 30
+            options:
+                fixed: false
+                comment: 'Tipo de Persona'
+    lifecycleCallbacks: {  }
