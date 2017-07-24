@@ -190,7 +190,6 @@ class Ttipoparte
     {
         return $this->idmodelo;
     }
-
     public function __toString()
     {
         return $this->tipoparte ? : '';

@@ -17,6 +17,13 @@ use Sonata\CoreBundle\Validator\ErrorElement;
 
 class  TareaAdmin  extends AbstractAdmin
 {
+    
+    public function configure()
+    {
+        //$this->parentAssociationMapping = 'idtipoarea';
+        //$this->parentAssociationMapping = 'idlocacion';
+    }
+  
 
   /*  protected function configureSideMenu(ItemInterface $menu, $action, AdminInterface $childAdmin = null)
     {
@@ -102,8 +109,8 @@ class  TareaAdmin  extends AbstractAdmin
             ->with('nombrearea')
             ->assertNotBlank()
             ->assertLength(array('min' => 1))
-            ->assertRegex(array('pattern' => '/^[a-z]+$/i'))
-            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertRegex(array('pattern' => '/^[a-z]+$/i'))
+            ->assertRegex(array('pattern' => '/^[0-9]+$/i'))
             ->assertLength(array('max' => 50))
             ->end()
             ->with('idlocacion')

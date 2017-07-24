@@ -9,10 +9,55 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Symfony\Component\Validator\Constraints as Assert;
+use Knp\Menu\ItemInterface;
+use Sonata\AdminBundle\Admin\AdminInterface;
 use Sonata\CoreBundle\Validator\ErrorElement;
+
+
 
 class  TpersonasAdmin  extends AbstractAdmin
 {
+    
+    public function configure()
+    {
+        //$this->parentAssociationMapping = 'idarea';
+        //$this->parentAssociationMapping = 'idsubarea';
+        //$this->parentAssociationMapping = 'idtipopersona';
+        //$this->parentAssociationMapping = 'idgrado';
+    }
+  
+
+  /*  protected function configureSideMenu(ItemInterface $menu, $action, AdminInterface $childAdmin = null)
+    {
+        if (!$childAdmin && !in_array($action, array('edit'))) {
+            return;
+        }
+        $admin = $this->isChild() ? $this->getParent() : $this;
+        $id = $admin->getRequest()->get('id');
+        $menu->addChild(
+            'Titulo',
+            $admin->generateMenuUrl('edit', array('id' => $id))
+                     
+        ); 
+        $menu->addChild(
+            'Titulo 2',
+            $admin->generateMenuUrl('poa.admin.tpersonas|poa.admin.tclgrados.list', array('id' => $id))
+            );
+        $menu->addChild(
+            'Titulo 2',
+            $admin->generateMenuUrl('poa.admin.tpersonas|poa.admin.tarea.list', array('id' => $id))
+            );
+        $menu->addChild(
+            'Titulo 2',
+            $admin->generateMenuUrl('poa.admin.tpersonas|poa.admin.ttipopersona.list', array('id' => $id))
+            );
+        $menu->addChild(
+            'Titulo 2',
+            $admin->generateMenuUrl('poa.admin.tpersonas|poa.admin.tsubareas.list', array('id' => $id))
+            );
+    }*/
+        
+        
     // Fields to be shown on create/edit forms
     // Los campos que se muestra al crear el Form/Editar
     protected function configureFormFields(FormMapper $formMapper)
@@ -23,7 +68,7 @@ class  TpersonasAdmin  extends AbstractAdmin
         ->add('idsubarea',null,array('label' =>'Lista de Subareas','required' => false, 'placeholder' => 'Seleccione.....' ))
         ->add('idtipopersona',null,array('label' =>'Lista de Tipos de Personas','required' => false, 'placeholder' => 'Seleccione.....' ))
         ->add('idgrado',null,array('label' =>'Lista de Grados','required' => false, 'placeholder' => 'Seleccione.....' ))
-       // ->add('idestado','integer',array('label' =>'Estado','required' => false))
+        ->add('idestado','integer',array('label' =>'Estado','required' => false))
         ->add('ci','text',array('label' =>'Carnet de Identidad','required' => false))
         ->add('appaterno','text',array('label' =>'Apellido Paterno','required' => false))
         ->add('apmaterno','text',array('label' =>'Apellido Materno','required' => false))
@@ -59,7 +104,7 @@ class  TpersonasAdmin  extends AbstractAdmin
         ->add('idsubarea',null,array('label' =>'Lista de Subareas'))
         ->add('idtipopersona',null,array('label' =>'Lista de Tipos de Personas'))
         ->add('idgrado',null,array('label' =>'Lista de Grados'))
-        //->add('idestado',null,array('label' =>'Estado'))
+        ->add('idestado',null,array('label' =>'Estado'))
         ->add('ci',null,array('label' =>'Carnet de Identidad'))
         ->add('appaterno',null,array('label' =>'Apellido Paterno'))
         ->add('apmaterno',null,array('label' =>'Apellido Materno'))
@@ -89,7 +134,7 @@ class  TpersonasAdmin  extends AbstractAdmin
         ->add('idsubarea')
         ->add('idtipopersona')
         ->add('idgrado')
-       // ->add('idestado')
+        ->add('idestado')
         ->add('ci')
         ->add('appaterno')
         ->add('apmaterno')
@@ -104,49 +149,135 @@ class  TpersonasAdmin  extends AbstractAdmin
         ->add('observaciones')
        ;
     }
-
+     // Fields to be shown on show Validate
     public function validate(ErrorElement $errorElement, $object)
         {
             $errorElement
-                ->with('ci')
-                ->assertNotBlank()
-                ->assertLength(array('min' => 7))
-                ->assertLength(array('max' => 15))
-                ->end()
-                ->with('appaterno')
-                ->assertNotBlank()
-                ->assertRegex(array('pattern' => "/^[a-z áéíóúÁÉÍÓÚñÑüÜ']+$/i"))
-                ->assertLength(array('min' => 4))
-                ->assertLength(array('max' => 15))
-                ->end()
-                ->with('apmaterno')
-                ->assertNotBlank()
-                ->assertRegex(array('pattern' => "/^[a-z áéíóúÁÉÍÓÚñÑüÜ']+$/i"))
-                ->assertLength(array('min' => 4))
-                ->assertLength(array('max' => 15))
-                ->end()
-                ->with('sexo')
-                ->assertNotBlank()
-                ->assertLength(array('min' => 1))
-                ->assertLength(array('max' => 1))
-                ->with('email')
-                ->assertNotBlank()
-                ->assertEmail()
-                ->end()
-                ->with('nombre')
-                ->assertNotBlank()
-                ->assertRegex(array('pattern' => "/^[a-z áéíóúÁÉÍÓÚñÑüÜ']+$/i"))
-                ->end()
-                ->with('telefono')
-                ->assertNotBlank()
-                ->assertLength(array('min' => 7))
-                ->assertRegex(array('pattern' => "/^[0-9]+$/i"))
-                ->end()
+            ->with('idarea')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertLength(array('max' => 4))
+            ->end()
+            ->with('idsubarea')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertLength(array('max' => 4))
+            ->end()
+            ->with('idtipopersona')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertLength(array('max' => 4))
+            ->end()
+            ->with('idgrado')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertLength(array('max' => 4))
+            ->end()
+            ->with('idestado')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertLength(array('max' => 4))
+            ->end()
+            ->with('ci')
+            ->assertNotBlank()
+            ->assertLength(array('min' => 6))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            ->assertLength(array('max' => 20))
+            ->end()
+            ->with('appaterno')
+            ->assertNotBlank()
+            ->assertLength(array('min' => 3))
+            ->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            ->assertLength(array('max' => 25))
+            ->end()
+            ->with('apmaterno')
+            ->assertNotBlank()
+            ->assertLength(array('min' => 3))
+            ->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            ->assertLength(array('max' => 25))
+            ->end()
+            ->with('nombre')
+            ->assertNotBlank()
+            ->assertLength(array('min' => 3))
+            ->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            ->assertLength(array('max' => 40))
+            ->end()
+            ->with('fecnac')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertLength(array('max' => 8))
+            ->end()
+            ->with('sexo')
+            ->assertNotBlank()
+            ->assertLength(array('min' => 1))
+            ->assertRegex(array('pattern' => '/^[mfMF]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            ->assertLength(array('max' => 1))
+            ->end()
+            ->with('escivil')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertLength(array('max' => 1))
+            ->end()
+            ->with('direccion')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            ->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            ->assertLength(array('max' => 150))
+            ->end()
+            ->with('telefono')
+            ->assertNotBlank()
+            ->assertLength(array('min' => 6))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            ->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            ->assertLength(array('max' => 20))
+            ->end()
+            ->with('email')
+            ->assertNotBlank()
+            ->assertLength(array('min' => 4))
+            ->assertEmail()
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            ->assertLength(array('max' => 80))
+            ->end()
+            ->with('codalumno')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            ->assertLength(array('max' => 10))
+            ->end()
+            ->with('observaciones')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            ->assertLength(array('max' => 250))
+            ->end()
+            
             ;
         }
-        
-
-
+    
+    
 }
 
 

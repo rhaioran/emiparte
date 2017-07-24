@@ -171,5 +171,4 @@ class Tpartepersona
         return $this->obs ? : '';
         //return $this->departamentogeografico ? : '';
     }
-
 }

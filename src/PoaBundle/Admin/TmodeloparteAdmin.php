@@ -9,9 +9,35 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Symfony\Component\Validator\Constraints as Assert;
+use Knp\Menu\ItemInterface;
+use Sonata\AdminBundle\Admin\AdminInterface;
+use Sonata\CoreBundle\Validator\ErrorElement;
+
+
 
 class  TmodeloparteAdmin  extends AbstractAdmin
 {
+    
+    public function configure()
+    {
+    }
+  
+
+  /*  protected function configureSideMenu(ItemInterface $menu, $action, AdminInterface $childAdmin = null)
+    {
+        if (!$childAdmin && !in_array($action, array('edit'))) {
+            return;
+        }
+        $admin = $this->isChild() ? $this->getParent() : $this;
+        $id = $admin->getRequest()->get('id');
+        $menu->addChild(
+            'Titulo',
+            $admin->generateMenuUrl('edit', array('id' => $id))
+                     
+        ); 
+    }*/
+        
+        
     // Fields to be shown on create/edit forms
     // Los campos que se muestra al crear el Form/Editar
     protected function configureFormFields(FormMapper $formMapper)
@@ -54,6 +80,29 @@ class  TmodeloparteAdmin  extends AbstractAdmin
         ->add('esgenerirco')
        ;
     }
+     // Fields to be shown on show Validate
+    public function validate(ErrorElement $errorElement, $object)
+        {
+            $errorElement
+            ->with('modelo')
+            ->assertNotBlank()
+            ->assertLength(array('min' => 2))
+            //->assertRegex(array('pattern' => '/^[a-z]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            ->assertLength(array('max' => 25))
+            ->end()
+            ->with('esgenerirco')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertLength(array('max' => 1))
+            ->end()
+            
+            ;
+        }
+    
+    
 }
 
 

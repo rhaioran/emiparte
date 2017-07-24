@@ -128,7 +128,6 @@ class Trespareaparte
     {
         return $this->idpersona;
     }
-
     public function __toString()
     {
         return $this->observacion ? : '';

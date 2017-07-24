@@ -21,7 +21,7 @@ class  TdetalleefectivoAdmin  extends AbstractAdmin
         ->add('idsubarea','integer',array('label' =>'Codigo de Sub Area','required' => false))
         ->add('idtipopersona','integer',array('label' =>'Tipo de Persona','required' => false))
         ->add('idfuerza','integer',array('label' =>'Fuarza que Pertenece','required' => false))
-        ->add('Efectivo','number',array('label' =>'Nro de Efectivo','required' => false))
+        ->add('Efectivo','integer',array('label' =>'Nro de Efectivo','required' => false))
         ->end();
         ;
     }
@@ -60,11 +60,7 @@ class  TdetalleefectivoAdmin  extends AbstractAdmin
         ->add('Efectivo')
        ;
     }
-
 }
 
-
-
- 
 
 

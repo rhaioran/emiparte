@@ -9,9 +9,40 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Symfony\Component\Validator\Constraints as Assert;
+use Knp\Menu\ItemInterface;
+use Sonata\AdminBundle\Admin\AdminInterface;
+use Sonata\CoreBundle\Validator\ErrorElement;
+
+
 
 class  TtipoparteAdmin  extends AbstractAdmin
 {
+    
+    public function configure()
+    {
+        //$this->parentAssociationMapping = 'idmodelo';
+    }
+  
+
+  /*  protected function configureSideMenu(ItemInterface $menu, $action, AdminInterface $childAdmin = null)
+    {
+        if (!$childAdmin && !in_array($action, array('edit'))) {
+            return;
+        }
+        $admin = $this->isChild() ? $this->getParent() : $this;
+        $id = $admin->getRequest()->get('id');
+        $menu->addChild(
+            'Titulo',
+            $admin->generateMenuUrl('edit', array('id' => $id))
+                     
+        ); 
+        $menu->addChild(
+            'Titulo 2',
+            $admin->generateMenuUrl('poa.admin.ttipoparte|poa.admin.tmodeloparte.list', array('id' => $id))
+            );
+    }*/
+        
+        
     // Fields to be shown on create/edit forms
     // Los campos que se muestra al crear el Form/Editar
     protected function configureFormFields(FormMapper $formMapper)
@@ -64,6 +95,55 @@ class  TtipoparteAdmin  extends AbstractAdmin
         ->add('horamaxenvio')
        ;
     }
+     // Fields to be shown on show Validate
+    public function validate(ErrorElement $errorElement, $object)
+        {
+            $errorElement
+            ->with('tipoparte')
+            ->assertNotBlank()
+            ->assertLength(array('min' => 3))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertEmail()
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            ->assertLength(array('max' => 30))
+            ->end()
+            ->with('decumplimiento')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertEmail()
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertLength(array('max' => 1))
+            ->end()
+            ->with('hora')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertEmail()
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertLength(array('max' => 8))
+            ->end()
+            ->with('idmodelo')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertEmail()
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertLength(array('max' => 4))
+            ->end()
+            ->with('horamaxenvio')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z áéíóúÁÉÍÓÚñÑüÜ]+$/i'))
+            //->assertEmail()
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertLength(array('max' => 10))
+            ->end()
+            
+            ;
+        }
+    
+    
 }
 
 

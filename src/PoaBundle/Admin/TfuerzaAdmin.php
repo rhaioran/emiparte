@@ -11,11 +11,19 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Symfony\Component\Validator\Constraints as Assert;
 use Knp\Menu\ItemInterface;
 use Sonata\AdminBundle\Admin\AdminInterface;
+use Sonata\CoreBundle\Validator\ErrorElement;
+
+
 
 class  TfuerzaAdmin  extends AbstractAdmin
 {
+    
+    public function configure()
+    {
+    }
+  
 
-        protected function configureSideMenu(ItemInterface $menu, $action, AdminInterface $childAdmin = null)
+  protected function configureSideMenu(ItemInterface $menu, $action, AdminInterface $childAdmin = null)
     {
         if (!$childAdmin && !in_array($action, array('edit'))) {
             return;
@@ -23,8 +31,9 @@ class  TfuerzaAdmin  extends AbstractAdmin
         $admin = $this->isChild() ? $this->getParent() : $this;
         $id = $admin->getRequest()->get('id');
         $menu->addChild(
-            'Fuerzas',
+            'Titulo',
             $admin->generateMenuUrl('edit', array('id' => $id))
+                     
         ); 
         $menu->addChild(
             'Grados',
@@ -32,6 +41,8 @@ class  TfuerzaAdmin  extends AbstractAdmin
         );
 
     }
+        
+        
     // Fields to be shown on create/edit forms
     // Los campos que se muestra al crear el Form/Editar
     protected function configureFormFields(FormMapper $formMapper)
@@ -54,7 +65,7 @@ class  TfuerzaAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-       ->addIdentifier('Fuerza',null,array('label' =>'Fuerza a la que  pertenece'))
+        ->addIdentifier('Fuerza',null,array('label' =>'Fuerza a la que  pertenece'))
         
         
         // add custom action links
@@ -71,6 +82,22 @@ class  TfuerzaAdmin  extends AbstractAdmin
         ->add('Fuerza')
        ;
     }
+     // Fields to be shown on show Validate
+    public function validate(ErrorElement $errorElement, $object)
+        {
+            $errorElement
+            ->with('Fuerza')
+            ->assertNotBlank()
+            ->assertLength(array('min' => 1))
+            ->assertRegex(array('pattern' => '/^[a-z]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            ->assertLength(array('max' => 20))
+            ->end()
+            
+            ;
+        }
+    
+    
 }
 
 

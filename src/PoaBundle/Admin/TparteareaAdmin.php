@@ -9,9 +9,45 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Symfony\Component\Validator\Constraints as Assert;
+use Knp\Menu\ItemInterface;
+use Sonata\AdminBundle\Admin\AdminInterface;
+use Sonata\CoreBundle\Validator\ErrorElement;
+
+
 
 class  TparteareaAdmin  extends AbstractAdmin
 {
+    
+    public function configure()
+    {
+        //$this->parentAssociationMapping = 'idtipoparte';
+        //$this->parentAssociationMapping = 'idarea';
+    }
+  
+
+  /*  protected function configureSideMenu(ItemInterface $menu, $action, AdminInterface $childAdmin = null)
+    {
+        if (!$childAdmin && !in_array($action, array('edit'))) {
+            return;
+        }
+        $admin = $this->isChild() ? $this->getParent() : $this;
+        $id = $admin->getRequest()->get('id');
+        $menu->addChild(
+            'Titulo',
+            $admin->generateMenuUrl('edit', array('id' => $id))
+                     
+        ); 
+        $menu->addChild(
+            'Titulo 2',
+            $admin->generateMenuUrl('poa.admin.tpartearea|poa.admin.tarea.list', array('id' => $id))
+            );
+        $menu->addChild(
+            'Titulo 2',
+            $admin->generateMenuUrl('poa.admin.tpartearea|poa.admin.ttipoparte.list', array('id' => $id))
+            );
+    }*/
+        
+        
     // Fields to be shown on create/edit forms
     // Los campos que se muestra al crear el Form/Editar
     protected function configureFormFields(FormMapper $formMapper)
@@ -38,7 +74,7 @@ class  TparteareaAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('idtipoparte',null,array('label' =>'Tipo de Parte'))
+        ->addIdentifier('idtipoparte',null,array('label' =>'Parte del Area'))
         ->add('idarea',null,array('label' =>'Lista de Areas'))
         ->add('esdiario',null,array('label' =>'Periodicidad'))
         
@@ -59,6 +95,36 @@ class  TparteareaAdmin  extends AbstractAdmin
         ->add('esdiario')
        ;
     }
+     // Fields to be shown on show Validate
+    public function validate(ErrorElement $errorElement, $object)
+        {
+            $errorElement
+            ->with('idtipoparte')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertLength(array('max' => 4))
+            ->end()
+            ->with('idarea')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertLength(array('max' => 4))
+            ->end()
+            ->with('esdiario')
+            //->assertNotBlank()
+            //->assertLength(array('min' => 1))
+            //->assertRegex(array('pattern' => '/^[a-z]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            ->assertLength(array('max' => 1))
+            ->end()
+            
+            ;
+        }
+    
+    
 }
 
 

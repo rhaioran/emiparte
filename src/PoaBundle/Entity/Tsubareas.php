@@ -97,7 +97,7 @@ class Tsubareas
     {
         return $this->idarea;
     }
-    
+
     public function __toString()
     {
         return $this->subarea ? : '';
