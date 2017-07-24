@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Symfony\Component\Validator\Constraints as Assert;
+use Sonata\CoreBundle\Validator\ErrorElement;
 
 class  TpersonasAdmin  extends AbstractAdmin
 {
@@ -103,6 +104,49 @@ class  TpersonasAdmin  extends AbstractAdmin
         ->add('observaciones')
        ;
     }
+
+    public function validate(ErrorElement $errorElement, $object)
+        {
+            $errorElement
+                ->with('ci')
+                ->assertNotBlank()
+                ->assertLength(array('min' => 7))
+                ->assertLength(array('max' => 15))
+                ->end()
+                ->with('appaterno')
+                ->assertNotBlank()
+                ->assertRegex(array('pattern' => "/^[a-z áéíóúÁÉÍÓÚñÑüÜ']+$/i"))
+                ->assertLength(array('min' => 4))
+                ->assertLength(array('max' => 15))
+                ->end()
+                ->with('apmaterno')
+                ->assertNotBlank()
+                ->assertRegex(array('pattern' => "/^[a-z áéíóúÁÉÍÓÚñÑüÜ']+$/i"))
+                ->assertLength(array('min' => 4))
+                ->assertLength(array('max' => 15))
+                ->end()
+                ->with('sexo')
+                ->assertNotBlank()
+                ->assertLength(array('min' => 1))
+                ->assertLength(array('max' => 1))
+                ->with('email')
+                ->assertNotBlank()
+                ->assertEmail()
+                ->end()
+                ->with('nombre')
+                ->assertNotBlank()
+                ->assertRegex(array('pattern' => "/^[a-z áéíóúÁÉÍÓÚñÑüÜ']+$/i"))
+                ->end()
+                ->with('telefono')
+                ->assertNotBlank()
+                ->assertLength(array('min' => 7))
+                ->assertRegex(array('pattern' => "/^[0-9]+$/i"))
+                ->end()
+            ;
+        }
+        
+
+
 }
 
 

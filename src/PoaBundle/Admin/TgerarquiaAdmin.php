@@ -18,7 +18,7 @@ class  TgerarquiaAdmin  extends AbstractAdmin
     {
         $formMapper        
         ->with('Titulo', array('class' => 'order col-md-6'))
-        ->add('gerarquia','text',array('label' =>'Gerarquia','required' => false))
+        ->add('gerarquia','text',array('label' =>'Jerarquía','required' => false))
         ->end();
        ;
     }
@@ -34,7 +34,7 @@ class  TgerarquiaAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('gerarquia',null,array('label' =>'Gerarquia'))
+        ->addIdentifier('gerarquia',null,array('label' =>'Jerarquía'))
         
         
         // add custom action links

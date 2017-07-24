@@ -24,14 +24,14 @@ class Tmodeloparte
     /**
      * @var string
      *
-     * @ORM\Column(name="Modelo", type="string", length=25, nullable=true)
+     * @ORM\Column(name="modelo", type="string", length=25, nullable=true)
      */
     private $modelo;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="Esgenerirco", type="boolean", nullable=true)
+     * @ORM\Column(name="esgenerirco", type="boolean", nullable=true)
      */
     private $esgenerirco;
 

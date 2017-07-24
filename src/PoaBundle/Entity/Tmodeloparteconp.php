@@ -101,7 +101,7 @@ class Tmodeloparteconp
         return $this->idmodelo;
     }
 
- /*   public function __toString()
+     /*   public function __toString()
     {
         return $this->tipopersona ? : '';
         //return $this->departamentogeografico ? : '';

@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Symfony\Component\Validator\Constraints as Assert;
+use Sonata\CoreBundle\Validator\ErrorElement;
 
 class  TdetalleparteAdmin  extends AbstractAdmin
 {
@@ -67,6 +68,17 @@ class  TdetalleparteAdmin  extends AbstractAdmin
         ->add('numero')
        ;
     }
+
+    public function validate(ErrorElement $errorElement, $object)
+        {
+            $errorElement
+                ->with('numero')
+                ->assertNotBlank()
+                ->assertLength(array('min' => 1))
+                ->assertRegex(array('pattern' => "/^[0-9]+$/i"))
+                ->end()
+                ;
+        }
 }
 
 

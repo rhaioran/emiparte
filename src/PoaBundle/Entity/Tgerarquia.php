@@ -54,26 +54,19 @@ class Tgerarquia
         return $this;
     }
 
-
     /**
      * Get gerarquia
      *
-     * @return integer
+     * @return string
      */
     public function getGerarquia()
     {
         return $this->gerarquia;
     }
 
-    /**
-     * Get gerarquia
-     *
-     * @return string
-     */
     public function __toString()
     {
         return $this->gerarquia ? : '';
         //return $this->departamentogeografico ? : '';
     }
-
 }

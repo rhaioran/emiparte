@@ -578,3 +578,4 @@ class Tpersonas
         //return $this->departamentogeografico ? : '';
     }
 }
+}

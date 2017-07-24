@@ -131,6 +131,7 @@ class Tarea
     {
         return $this->idlocacion;
     }
+
     public function __toString()
     {
         return $this->nombrearea ? : '';

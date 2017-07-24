@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 
+
 class  TdetalleefectivoAdmin  extends AbstractAdmin
 {
     // Fields to be shown on create/edit forms
@@ -59,6 +60,7 @@ class  TdetalleefectivoAdmin  extends AbstractAdmin
         ->add('Efectivo')
        ;
     }
+
 }
 
 

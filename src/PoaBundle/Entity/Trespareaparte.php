@@ -21,16 +21,12 @@ class Trespareaparte
      */
     private $idresponsable;
 
-     /**
-     * @var \PoaBundle\Entity\Tarea
+    /**
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="PoaBundle\Entity\Tarea")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="idarea", referencedColumnName="idarea")
-     * })
+     * @ORM\Column(name="idarea", type="integer", nullable=false)
      */
     private $idarea;
-
 
     /**
      * @var string

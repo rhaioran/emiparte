@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Symfony\Component\Validator\Constraints as Assert;
+use Sonata\CoreBundle\Validator\ErrorElement;
 
 class  TconceptoparteAdmin  extends AbstractAdmin
 {
@@ -60,6 +61,17 @@ class  TconceptoparteAdmin  extends AbstractAdmin
         ->add('esconcepbase')
        ;
     }
+
+    public function validate(ErrorElement $errorElement, $object)
+        {
+            $errorElement
+                ->with('concepto')
+                ->assertNotBlank()
+                ->assertLength(array('min' => 4))
+                ->assertLength(array('max' => 35))
+                ->end()
+                ;
+        }
 }
 
 

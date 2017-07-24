@@ -40,7 +40,7 @@ class  TparteareaAdmin  extends AbstractAdmin
         $listMapper
         ->addIdentifier('idtipoparte',null,array('label' =>'Tipo de Parte'))
         ->add('idarea',null,array('label' =>'Lista de Areas'))
-        ->add('esdiario',null,array('label' =>'Priodicidad'))
+        ->add('esdiario',null,array('label' =>'Periodicidad'))
         
         
         // add custom action links

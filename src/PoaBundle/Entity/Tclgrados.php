@@ -24,7 +24,7 @@ class Tclgrados
     /**
      * @var string
      *
-     * @ORM\Column(name="grado", type="string", length=60, nullable=false)
+     * @ORM\Column(name="grado", type="string", length=40, nullable=false)
      */
     private $grado;
 
@@ -162,7 +162,7 @@ class Tclgrados
     {
         return $this->idgerarquia;
     }
-
+    
     public function __toString()
     {
         return $this->grado ? : '';

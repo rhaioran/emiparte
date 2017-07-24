@@ -94,7 +94,7 @@ class Tdepartamentogeo
     {
         return $this->identidad;
     }
-
+    
     public function __toString()
     {
         return $this->departamentogeografico ? : '';

@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Symfony\Component\Validator\Constraints as Assert;
+use Sonata\CoreBundle\Validator\ErrorElement;
 
 class  TdepartamentogeoAdmin  extends AbstractAdmin
 {
@@ -19,7 +20,7 @@ class  TdepartamentogeoAdmin  extends AbstractAdmin
         $formMapper        
         ->with('Titulo', array('class' => 'order col-md-6'))
         ->add('departamentogeografico','text',array('label' =>'Departamentos Geograficoss','required' => false))
-        ->add('identidad','integer',array('label' =>'Lista de Entidades','required' => false))
+        //->add('identidad','integer',array('label' =>'Lista de Entidades','required' => false))
         ->end();
        ;
     }
@@ -36,7 +37,7 @@ class  TdepartamentogeoAdmin  extends AbstractAdmin
     {
         $listMapper
         ->addIdentifier('departamentogeografico',null,array('label' =>'Departamentos Geograficoss'))
-        ->add('identidad',null,array('label' =>'Lista de Entidades'))
+        //->add('identidad',null,array('label' =>'Lista de Entidades'))
         
         
         // add custom action links
@@ -51,9 +52,20 @@ class  TdepartamentogeoAdmin  extends AbstractAdmin
     {
         $showMapper
         ->add('departamentogeografico')
-        ->add('identidad')
+       // ->add('identidad')
        ;
     }
+
+    public function validate(ErrorElement $errorElement, $object)
+        {
+            $errorElement
+                ->with('departamentogeografico')
+                ->assertNotBlank()
+                ->assertLength(array('min' => 4))
+                ->assertLength(array('max' => 15))
+                ->end()
+                ;
+        }
 }
 
 

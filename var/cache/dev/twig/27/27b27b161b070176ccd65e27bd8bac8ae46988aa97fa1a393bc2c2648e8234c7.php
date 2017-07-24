@@ -15,11 +15,11 @@ class __TwigTemplate_f9f32c5cb206ddbd8db291c760a21b8db624990ccae5a120e9861f78ba6
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_26e075eb1a34ab55ce148712e60b1e5142e5b0d79fe18c6e53b5da68d6e054c8 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_26e075eb1a34ab55ce148712e60b1e5142e5b0d79fe18c6e53b5da68d6e054c8->enter($__internal_26e075eb1a34ab55ce148712e60b1e5142e5b0d79fe18c6e53b5da68d6e054c8_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SonataAdminBundle:Button:show_button.html.twig"));
+        $__internal_e9986ac9c46952d52927b8b6005d2cd9ea674a3970b0aae6bca2e7611c368ba6 = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_e9986ac9c46952d52927b8b6005d2cd9ea674a3970b0aae6bca2e7611c368ba6->enter($__internal_e9986ac9c46952d52927b8b6005d2cd9ea674a3970b0aae6bca2e7611c368ba6_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SonataAdminBundle:Button:show_button.html.twig"));
 
-        $__internal_5dac0453ee3af7f249cc06bc423736d2a19d28c6270d51c5838f8e4fd1a6d67b = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_5dac0453ee3af7f249cc06bc423736d2a19d28c6270d51c5838f8e4fd1a6d67b->enter($__internal_5dac0453ee3af7f249cc06bc423736d2a19d28c6270d51c5838f8e4fd1a6d67b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SonataAdminBundle:Button:show_button.html.twig"));
+        $__internal_f350b0c8c44708a8c1e2d26677f0f495ad2984a8a4b7770e55e62e20b25b6386 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_f350b0c8c44708a8c1e2d26677f0f495ad2984a8a4b7770e55e62e20b25b6386->enter($__internal_f350b0c8c44708a8c1e2d26677f0f495ad2984a8a4b7770e55e62e20b25b6386_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "SonataAdminBundle:Button:show_button.html.twig"));
 
         // line 11
         if ((($this->getAttribute(($context["admin"] ?? $this->getContext($context, "admin")), "canAccessObject", array(0 => "show", 1 => ($context["object"] ?? $this->getContext($context, "object"))), "method") && (twig_length_filter($this->env, $this->getAttribute(($context["admin"] ?? $this->getContext($context, "admin")), "show", array())) > 0)) && $this->getAttribute(($context["admin"] ?? $this->getContext($context, "admin")), "hasRoute", array(0 => "show"), "method"))) {
@@ -39,10 +39,10 @@ class __TwigTemplate_f9f32c5cb206ddbd8db291c760a21b8db624990ccae5a120e9861f78ba6
 ";
         }
         
-        $__internal_26e075eb1a34ab55ce148712e60b1e5142e5b0d79fe18c6e53b5da68d6e054c8->leave($__internal_26e075eb1a34ab55ce148712e60b1e5142e5b0d79fe18c6e53b5da68d6e054c8_prof);
+        $__internal_e9986ac9c46952d52927b8b6005d2cd9ea674a3970b0aae6bca2e7611c368ba6->leave($__internal_e9986ac9c46952d52927b8b6005d2cd9ea674a3970b0aae6bca2e7611c368ba6_prof);
 
         
-        $__internal_5dac0453ee3af7f249cc06bc423736d2a19d28c6270d51c5838f8e4fd1a6d67b->leave($__internal_5dac0453ee3af7f249cc06bc423736d2a19d28c6270d51c5838f8e4fd1a6d67b_prof);
+        $__internal_f350b0c8c44708a8c1e2d26677f0f495ad2984a8a4b7770e55e62e20b25b6386->leave($__internal_f350b0c8c44708a8c1e2d26677f0f495ad2984a8a4b7770e55e62e20b25b6386_prof);
 
     }
 

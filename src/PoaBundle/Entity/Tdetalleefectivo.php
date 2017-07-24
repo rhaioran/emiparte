@@ -45,7 +45,7 @@ class Tdetalleefectivo
     /**
      * @var integer
      *
-     * @ORM\Column(name="Efectivo", type="smallint", nullable=true)
+     * @ORM\Column(name="Efectivo", type="integer", nullable=true)
      */
     private $efectivo;
 

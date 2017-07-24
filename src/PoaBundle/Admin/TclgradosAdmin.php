@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Symfony\Component\Validator\Constraints as Assert;
+use Sonata\CoreBundle\Validator\ErrorElement;
 
 class  TclgradosAdmin  extends AbstractAdmin
 {
@@ -28,7 +29,7 @@ class  TclgradosAdmin  extends AbstractAdmin
         ->with('Titulo', array('class' => 'order col-md-6'))
         ->add('grado','text',array('label' =>'Grado','required' => true))
         ->add('idfuerza',null,array('label' =>'Fuerza','required' => false, 'placeholder' => 'Seleccione.....' ))
-        ->add('idgerarquia',null,array('label' =>'Gerarquia','required' => false, 'placeholder' => 'Seleccione.....' ))
+        ->add('idgerarquia',null,array('label' =>'Jerarquía','required' => false, 'placeholder' => 'Seleccione.....' ))
        // ->add('antiguedad',Byte,array('label' =>'Antiguedad','required' => false))
         ->end();
        ;
@@ -49,7 +50,7 @@ class  TclgradosAdmin  extends AbstractAdmin
         $listMapper
         ->addIdentifier('grado',null,array('label' =>'Grado'))
         ->add('idfuerza',null,array('label' =>'Fuerza'))
-        ->add('idgerarquia',null,array('label' =>'Gerarquia'))
+        ->add('idgerarquia',null,array('label' =>'Jerarquía'))
       //  ->add('antiguedad')
         
         
@@ -70,6 +71,18 @@ class  TclgradosAdmin  extends AbstractAdmin
      //   ->add('antiguedad')
        ;
     }
+
+    public function validate(ErrorElement $errorElement, $object)
+        {
+            $errorElement
+                ->with('grado')
+                ->assertNotBlank()
+                ->assertLength(array('min' => 4))
+                ->assertLength(array('max' => 40))
+                ->end()
+                ;
+        }
+
 }
 
 

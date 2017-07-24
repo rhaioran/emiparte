@@ -65,7 +65,7 @@ services:
         class: PoaBundle\Admin\TgerarquiaAdmin
         arguments: [~, PoaBundle\Entity\Tgerarquia, PoaBundle:TgerarquiaAdmin]
         tags:
-            - { name: sonata.admin, manager_type: orm, group: Personal, label: Gerarquia }
+            - { name: sonata.admin, manager_type: orm, group: Personal, label: Jerarquía }
 
     poa.admin.tpersonas:
         class: PoaBundle\Admin\TpersonasAdmin
