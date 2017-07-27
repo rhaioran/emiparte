@@ -154,6 +154,7 @@ class Tpersonas
 
 
 
+
     /**
      * Get idpersona
      *
@@ -574,7 +575,8 @@ class Tpersonas
 
     public function __toString()
     {
-        return $this->appaterno ? : '';
+        return sprintf('%s  %s  %s', $this->appaterno, $this->apmaterno, $this->nombre);
+        //return $this->appaterno + $this->apmaterno ? : '';
         //return $this->departamentogeografico ? : '';
     }
 }

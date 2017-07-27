@@ -110,7 +110,7 @@ class  TareaAdmin  extends AbstractAdmin
             ->assertNotBlank()
             ->assertLength(array('min' => 1))
             //->assertRegex(array('pattern' => '/^[a-z]+$/i'))
-            ->assertRegex(array('pattern' => '/^[0-9]+$/i'))
+            //->assertRegex(array('pattern' => '/^[0-9]+$/i'))
             ->assertLength(array('max' => 50))
             ->end()
             ->with('idlocacion')

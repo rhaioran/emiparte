@@ -64,10 +64,10 @@ class Tsubareas extends \PoaBundle\Entity\Tsubareas implements \Doctrine\ORM\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'PoaBundle\\Entity\\Tsubareas' . "\0" . 'idsubarea', '' . "\0" . 'PoaBundle\\Entity\\Tsubareas' . "\0" . 'subarea', '' . "\0" . 'PoaBundle\\Entity\\Tsubareas' . "\0" . 'idarea'];
+            return ['__isInitialized__', '' . "\0" . 'PoaBundle\\Entity\\Tsubareas' . "\0" . 'idsubarea', '' . "\0" . 'PoaBundle\\Entity\\Tsubareas' . "\0" . 'subarea', '' . "\0" . 'PoaBundle\\Entity\\Tsubareas' . "\0" . 'idarea', 'area'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'PoaBundle\\Entity\\Tsubareas' . "\0" . 'idsubarea', '' . "\0" . 'PoaBundle\\Entity\\Tsubareas' . "\0" . 'subarea', '' . "\0" . 'PoaBundle\\Entity\\Tsubareas' . "\0" . 'idarea'];
+        return ['__isInitialized__', '' . "\0" . 'PoaBundle\\Entity\\Tsubareas' . "\0" . 'idsubarea', '' . "\0" . 'PoaBundle\\Entity\\Tsubareas' . "\0" . 'subarea', '' . "\0" . 'PoaBundle\\Entity\\Tsubareas' . "\0" . 'idarea', 'area'];
     }
 
     /**
@@ -230,6 +230,28 @@ class Tsubareas extends \PoaBundle\Entity\Tsubareas implements \Doctrine\ORM\Pro
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIdarea', []);
 
         return parent::getIdarea();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setArea($area)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setArea', [$area]);
+
+        return parent::setArea($area);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getArea()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getArea', []);
+
+        return parent::getArea();
     }
 
     /**

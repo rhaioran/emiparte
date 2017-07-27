@@ -20,7 +20,7 @@ class  TdetalleparteAdmin  extends AbstractAdmin
     
     public function configure()
     {
-        //$this->parentAssociationMapping = 'idparte';
+        $this->parentAssociationMapping = 'idparte';
         //$this->parentAssociationMapping = 'idconcepto';
     }
   
@@ -74,16 +74,17 @@ class  TdetalleparteAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('idparte',null,array('label' =>'Codigo del Detalle del Parte'))
+        //->addIdentifier('idparte',null,array('label' =>'Codigo del Detalle del Parte'))
         ->add('idconcepto',null,array('label' =>'Lista de Conceptos'))
-        ->add('numero',null,array('label' =>'Cantidad'))
+        ->add('numero',null,array('label' =>'Cantidad', 'editable' => true))
         
         
         // add custom action links
             ->add('_action', 'Acciones',
               array('actions' => 
               array('show' => array(),
-                    'edit' => array(),)))
+                    //'edit' => array(),
+                    )))
         ;
      }
     // Fields to be shown on show action

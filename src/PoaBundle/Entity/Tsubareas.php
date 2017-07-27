@@ -3,6 +3,7 @@
 namespace PoaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Tsubareas
@@ -37,6 +38,13 @@ class Tsubareas
      * })
      */
     private $idarea;
+
+    /**
+     * @Assert\Type("AppBundle\Entity\Tarea")
+     * 
+     */
+    public $area;
+
 
 
 
@@ -98,9 +106,36 @@ class Tsubareas
         return $this->idarea;
     }
 
+
+    /**
+     * Set area
+     *
+     * @param string $area
+     *
+     * @return Tarea
+     */
+    public function setArea($area)
+    {
+        $this->area = $area;
+
+        return $this;
+    }
+
+    /**
+     * Get area
+     *
+     * @return string
+     */
+    public function getArea()
+    {
+        return $this->area;
+    }
+
     public function __toString()
     {
-        return $this->subarea ? : '';
+
+        return sprintf('%s de %s', $this->subarea, $this->idarea);
+        //return $this->subarea ? : '';
        // return $this->area; ? : '';
     }
 }

@@ -3,6 +3,7 @@
 namespace PoaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Tclgrados
@@ -54,6 +55,18 @@ class Tclgrados
      * })
      */
     private $idgerarquia;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Tfuerza", cascade={"persist","remove"}, orphanRemoval=true , mappedBy="idfuerza")
+     */   
+    protected $gradosf;
+
+
+    /**
+     * @Assert\Type("AppBundle\Entity\Tfuerza")
+     * 
+     */
+    public $fuerza;
 
 
 
@@ -162,11 +175,64 @@ class Tclgrados
     {
         return $this->idgerarquia;
     }
+
+
+
+
+    public function  getgradosf()
+    {
+        
+        return $this->gradosf;
+    }
+ 
+
+    public function  setgradosf()
+    {
+        
+        return $this->gradosf;
+    }
+
+
+    /**
+     * Set fuerza
+     *
+     * @param string $fuerza
+     *
+     * @return Tfuerza
+     */
+    public function setFuerza($fuerza)
+    {
+        $this->fuerza = $fuerza;
+
+        return $this;
+    }
+
+    /**
+     * Get fuerza
+     *
+     * @return string
+     */
+    public function getFuerza()
+    {
+        return $this->fuerza;
+    }
+
+    /*public function fuerza($this->idfuerza)
+    {
+        $queryBuilder = $this->getModelManager()
+        ->getEntityManager('PoaBundle\Entity\Tfuerza')
+        ->createQueryBuilder();
+        $queryBuilder->select('cmp.fuerza')
+        ->from('PoaBundle\Entity\Tfuerza', 'cmp')
+        ->where('cmp.idfuerza'=='idfuerza');
+        return $this->queryBuilder;
+    }*/
     
     public function __toString()
     {
-        return $this->grado ? : '';
+        return sprintf('%s %s', $this->grado, $this->idfuerza);
+        //return $this->grado ? : '';
        // return $this->antiguedad ? : '';
-       // return $this->fuerza ? : '';
+        //return $this->idfuerza ? : '';
     }
 }

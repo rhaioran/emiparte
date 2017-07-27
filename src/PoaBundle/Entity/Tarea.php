@@ -3,6 +3,7 @@
 namespace PoaBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Tarea
@@ -49,6 +50,13 @@ class Tarea
     private $idlocacion;
 
 
+    /**
+     * @Assert\Type("AppBundle\Entity\Tlocacion")
+     * 
+     */
+    public $locacion;
+
+    
 
     /**
      * Get idarea
@@ -132,9 +140,36 @@ class Tarea
         return $this->idlocacion;
     }
 
+
+    /**
+     * Set locacion
+     *
+     * @param string $locacion
+     *
+     * @return Tlocacion
+     */
+    public function setLocacion($locacion)
+    {
+        $this->locacion = $locacion;
+
+        return $this;
+    }
+
+    /**
+     * Get locacion
+     *
+     * @return string
+     */
+    public function getLocacion()
+    {
+        return $this->locacion;
+    }
+
+
     public function __toString()
     {
-        return $this->nombrearea ? : '';
+        return sprintf('%s en %s', $this->nombrearea, $this->idlocacion);
+        //return sprintf('%s', $this->nombrearea);
         //return $this->departamentogeografico ? : '';
     }
 }

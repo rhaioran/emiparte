@@ -26,7 +26,7 @@ class  TparteAdmin  extends AbstractAdmin
     }
   
 
-  /*  protected function configureSideMenu(ItemInterface $menu, $action, AdminInterface $childAdmin = null)
+    protected function configureSideMenu(ItemInterface $menu, $action, AdminInterface $childAdmin = null)
     {
         if (!$childAdmin && !in_array($action, array('edit'))) {
             return;
@@ -40,17 +40,13 @@ class  TparteAdmin  extends AbstractAdmin
         ); 
         $menu->addChild(
             'Titulo 2',
-            $admin->generateMenuUrl('poa.admin.tparte|poa.admin.ttipoparte.list', array('id' => $id))
+            $admin->generateMenuUrl('poa.admin.tparte|poa.admin.tdetalleparte.list', array('id' => $id))
             );
         $menu->addChild(
-            'Titulo 2',
-            $admin->generateMenuUrl('poa.admin.tparte|poa.admin.tarea.list', array('id' => $id))
+            'Titulo 3',
+            $admin->generateMenuUrl('poa.admin.tparte|poa.admin.tpartepersona.list', array('id' => $id))
             );
-        $menu->addChild(
-            'Titulo 2',
-            $admin->generateMenuUrl('poa.admin.tparte|poa.admin.tsubareas.list', array('id' => $id))
-            );
-    }*/
+    }
         
         
     // Fields to be shown on create/edit forms

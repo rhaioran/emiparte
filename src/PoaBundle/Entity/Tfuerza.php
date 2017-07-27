@@ -28,6 +28,12 @@ class Tfuerza
      */
     private $fuerza;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Tclgrados", cascade={"persist","remove"}, orphanRemoval=true , mappedBy="idfuerza")
+     */   
+    protected $gradosf;
+
+
 
 
     /**
@@ -62,6 +68,24 @@ class Tfuerza
     public function getFuerza()
     {
         return $this->fuerza;
+    }
+
+    public function  getgradosf()
+    {
+        
+        return $this->gradosf;
+    }
+ 
+
+    public function  setgradosf()
+    {
+        
+        return $this->gradosf;
+    }
+
+    public function __construct()
+    {
+        $this->tdirecciones = new ArrayCollection();
     }
 
     public function __toString()

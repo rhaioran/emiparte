@@ -64,10 +64,10 @@ class Tarea extends \PoaBundle\Entity\Tarea implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'idarea', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'nombrearea', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'idtipoarea', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'idlocacion'];
+            return ['__isInitialized__', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'idarea', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'nombrearea', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'idtipoarea', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'idlocacion', 'locacion'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'idarea', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'nombrearea', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'idtipoarea', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'idlocacion'];
+        return ['__isInitialized__', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'idarea', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'nombrearea', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'idtipoarea', '' . "\0" . 'PoaBundle\\Entity\\Tarea' . "\0" . 'idlocacion', 'locacion'];
     }
 
     /**
@@ -252,6 +252,28 @@ class Tarea extends \PoaBundle\Entity\Tarea implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIdlocacion', []);
 
         return parent::getIdlocacion();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setLocacion($locacion)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setLocacion', [$locacion]);
+
+        return parent::setLocacion($locacion);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getLocacion()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getLocacion', []);
+
+        return parent::getLocacion();
     }
 
     /**

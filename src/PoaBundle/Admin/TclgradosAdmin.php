@@ -75,7 +75,7 @@ class  TclgradosAdmin  extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->addIdentifier('grado',null,array('label' =>'Grado'))
+        ->addIdentifier('grado',null,array('label' =>'Grado', 'editable' => true))
         ->add('idfuerza',null,array('label' =>'Fuerza'))
         ->add('idgerarquia',null,array('label' =>''))
         //->add('antiguedad',null,array('label' =>'Antiguedad'))

@@ -20,7 +20,7 @@ class  TpartepersonaAdmin  extends AbstractAdmin
     
     public function configure()
     {
-        //$this->parentAssociationMapping = 'idparte';
+        $this->parentAssociationMapping = 'idparte';
         //$this->parentAssociationMapping = 'idconcepto';
         //$this->parentAssociationMapping = 'idpersona';
     }

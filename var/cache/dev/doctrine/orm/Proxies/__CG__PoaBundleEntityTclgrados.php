@@ -64,10 +64,10 @@ class Tclgrados extends \PoaBundle\Entity\Tclgrados implements \Doctrine\ORM\Pro
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'idgrado', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'grado', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'antiguedad', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'idfuerza', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'idgerarquia'];
+            return ['__isInitialized__', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'idgrado', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'grado', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'antiguedad', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'idfuerza', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'idgerarquia', 'gradosf', 'fuerza'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'idgrado', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'grado', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'antiguedad', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'idfuerza', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'idgerarquia'];
+        return ['__isInitialized__', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'idgrado', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'grado', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'antiguedad', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'idfuerza', '' . "\0" . 'PoaBundle\\Entity\\Tclgrados' . "\0" . 'idgerarquia', 'gradosf', 'fuerza'];
     }
 
     /**
@@ -274,6 +274,50 @@ class Tclgrados extends \PoaBundle\Entity\Tclgrados implements \Doctrine\ORM\Pro
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getIdgerarquia', []);
 
         return parent::getIdgerarquia();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getgradosf()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getgradosf', []);
+
+        return parent::getgradosf();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setgradosf()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setgradosf', []);
+
+        return parent::setgradosf();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setFuerza($fuerza)
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setFuerza', [$fuerza]);
+
+        return parent::setFuerza($fuerza);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getFuerza()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getFuerza', []);
+
+        return parent::getFuerza();
     }
 
     /**
